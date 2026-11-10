@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kube Panel</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <main>
+    <header><div class="brand"><h1>Kube Panel</h1><span class="badge">Read only</span></div><button id="k9s" title="Open and switch to a read-only k9s terminal in the selected workspace">Open k9s ↗</button></header>
+    <section class="connection" aria-label="Connection">
+      <div class="connection-fields">
+        <label>Context<select id="context"><option value="">Loading contexts…</option></select></label>
+        <label>Namespace<input id="namespace" list="namespaces" value="default" autocomplete="off" spellcheck="false" title="Namespace, or * for all namespaces"><datalist id="namespaces"></datalist></label>
+        <button id="connect" class="primary">Connect</button>
+      </div>
+      <details class="destination"><summary>Workspace <span id="workspace-name">Choose destination</span></summary><label>Terminal destination<select id="workspace"><option value="">Choose workspace…</option></select></label></details>
+    </section>
+    <p id="error" class="error" role="alert" hidden></p>
+    <section class="browser" aria-label="Workloads">
+      <div class="toolbar"><div class="switch" role="group" aria-label="Resource type"><button id="pods" aria-pressed="true">Pods</button><button id="deployments" aria-pressed="false">Deployments</button></div><button id="refresh" disabled>Refresh</button></div>
+      <label class="search"><span class="sr-only">Filter workloads by name or namespace</span><input id="filter" type="search" placeholder="Filter workloads…"></label>
+      <div class="list-heading"><div id="summary" class="summary" role="status">Choose a context, then connect.</div><span class="column-label">Ready · Restarts</span></div>
+      <div id="workloads" class="workloads" tabindex="0" aria-label="Scrollable workload list"></div>
+    </section>
+    <section id="details" class="details" aria-label="Resource details" hidden>
+      <div class="detail-heading"><div><h2 id="resource-name"></h2><span id="resource-namespace" class="hint"></span></div><div class="detail-actions"><button id="expand" aria-pressed="false" aria-label="Expand resource details">Expand</button><button id="close" aria-label="Close resource details" title="Close details (Escape)">×</button></div></div>
+      <div class="switch detail-tabs" role="group" aria-label="Detail view"><button id="logs" aria-pressed="true">Logs</button><button id="events" aria-pressed="false">Events</button><button id="yaml" aria-pressed="false">YAML</button></div>
+      <div id="log-options"><label><span class="sr-only">Container</span><select id="container" aria-label="Container"></select></label><label class="check"><input id="previous" type="checkbox"> Previous</label></div>
+      <div class="output-search"><input id="output-search" type="search" aria-label="Search resource output" placeholder="Find in logs…"><select id="severity" aria-label="Log severity"><option value="all">All levels</option><option value="error">Error + Fatal</option><option value="warn">Warn</option><option value="info">Info</option><option value="debug">Debug</option><option value="trace">Trace</option></select></div>
+      <div class="viewer-tools"><div><button id="auto" aria-pressed="false" title="Refresh logs every 3 seconds">Auto</button><button id="follow" aria-pressed="true" title="Keep the latest log line in view">Follow</button><button id="wrap" aria-pressed="true">Wrap</button></div><div><button id="copy" title="Copy the full output">Copy</button><button id="detail-refresh" aria-label="Refresh resource output">Refresh</button></div></div>
+      <div class="output-caption"><p id="detail-status" class="hint" role="status"></p><span id="line-count" class="hint"></span></div>
+      <div id="detail-content" class="wrap-output" tabindex="0" aria-label="Scrollable resource content"></div>
+    </section>
+    <footer><span id="updated">Manual refresh</span><span>kubectl + k9s</span></footer>
+  </main>
+  <script type="module" src="panel.mjs"></script>
+</body>
+</html>

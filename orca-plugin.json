@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stablyai/orca/main/docs/schemas/plugins/orca-plugin.v2.schema.json",
+  "manifestVersion": 2,
+  "execution": "trusted-worker",
+  "id": "kube-panel",
+  "name": "Kube Panel",
+  "version": "0.1.0",
+  "author": { "name": "Baha Chammakhi", "url": "https://github.com/bahachammakhi" },
+  "repository": "https://github.com/bahachammakhi/kube-panel",
+  "license": "MIT",
+  "description": "Browse Kubernetes workloads, logs, events and YAML, and open k9s beside your code.",
+  "engines": { "orca": ">=1.4.254" },
+  "screenshots": [{ "path": "assets/log-inspector.png", "alt": "Kube Panel showing workloads and the log inspector with synthetic sample data." }],
+  "pluginApi": 1,
+  "main": "worker.mjs",
+  "contributes": {
+    "panels": [{ "id": "cluster", "title": "Kube Panel", "icon": "layers", "entry": "panel.html" }]
+  },
+  "capabilities": [{ "kind": "workspace:read" }, { "kind": "terminal:send" }, { "kind": "storage:own" }]
+}
