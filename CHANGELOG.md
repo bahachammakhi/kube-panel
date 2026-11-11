@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 — 2026-11-11
+
+- Add the actual log inspector preview as the plugin cover so the directory can show it instead of generic artwork.
+- Expand the listing description with the log tools, events, YAML, connection workflow, and read-only behavior.
+- No changes to runtime behavior or requested access.
+
 ## 0.1.0 — 2026-11-10
 
 Initial release.

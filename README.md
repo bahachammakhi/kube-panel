@@ -12,7 +12,7 @@ A build-free Orca plugin for inspecting Kubernetes beside your code.
 ## Install
 
 ```sh
-orca plugin install bahachammakhi/kube-panel@v0.1.0
+orca plugin install bahachammakhi/kube-panel@v0.1.1
 ```
 
 Review the requested access in Orca, then enable the plugin. Open **Kube Panel** from the right sidebar, or run `orca plugin open bahachammakhi.kube-panel`.
