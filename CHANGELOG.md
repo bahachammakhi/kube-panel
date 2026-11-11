@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-11-11
+
+- Replace the listing cover with a screenshot captured inside the actual Orca window, showing Kube Panel beside a deployment manifest.
+- Add an events screenshot and explanatory README captions. Screenshots use demo data and contain no private workspace or cluster content.
+- No runtime or permission changes.
+
 ## 0.1.1 — 2026-11-11
 
 - Add the actual log inspector preview as the plugin cover so the directory can show it instead of generic artwork.

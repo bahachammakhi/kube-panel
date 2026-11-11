@@ -4,14 +4,18 @@
   "execution": "trusted-worker",
   "id": "kube-panel",
   "name": "Kube Panel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": { "name": "Baha Chammakhi", "url": "https://github.com/bahachammakhi" },
   "repository": "https://github.com/bahachammakhi/kube-panel",
   "license": "MIT",
   "description": "Inspect Kubernetes beside your code: browse pods and deployments, search and filter container logs, expand JSON log fields, and inspect events and highlighted YAML. Choose a context and namespace, optionally refresh logs every three seconds, or open a read-only k9s terminal; uses your local kubectl credentials and never changes your kubeconfig context.",
   "engines": { "orca": ">=1.4.254" },
-  "cover": { "path": "assets/log-inspector.png", "alt": "Kube Panel's workload browser and log inspector, showing timestamps, log levels, search, and refresh controls with synthetic sample data." },
-  "screenshots": [{ "path": "assets/log-inspector.png", "alt": "Kube Panel showing workloads and the log inspector with synthetic sample data." }],
+  "cover": { "path": "assets/orca-workloads-logs.png", "alt": "Kube Panel running inside Orca beside a Kubernetes deployment file, with the workload list and log viewer open. Captured in Orca with demo data." },
+  "screenshots": [
+    { "path": "assets/orca-workloads-logs.png", "alt": "Actual Orca window showing a deployment manifest beside Kube Panel's workloads and logs, using demo data.", "caption": "Workloads and logs beside your code in Orca (demo data)." },
+    { "path": "assets/orca-events.png", "alt": "Kube Panel's event inspector captured in Orca, showing scheduling, startup, and readiness events with demo data.", "caption": "Inspect events, counts, and timestamps (demo data)." },
+    { "path": "assets/log-inspector.png", "alt": "Detailed view of log search, severity filters, timestamps, and structured messages with sample data.", "caption": "Log inspector controls and structured output (sample data)." }
+  ],
   "pluginApi": 1,
   "main": "worker.mjs",
   "contributes": {

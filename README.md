@@ -2,7 +2,9 @@
 
 A build-free Orca plugin for inspecting Kubernetes beside your code.
 
-![Kube Panel log inspector with sample data](assets/log-inspector.png)
+![Kube Panel running inside Orca beside a Kubernetes manifest](assets/orca-workloads-logs.png)
+
+Captured in the actual Orca desktop app with demo workloads and logs. The panel sits beside your editor so you can inspect a deployment and its running resources together.
 
 - Browse pods and deployments, filter by name/namespace/status, and inspect readiness and restarts.
 - Read the latest 200 log lines (including previous container instances), events, and resource YAML.
@@ -12,7 +14,7 @@ A build-free Orca plugin for inspecting Kubernetes beside your code.
 ## Install
 
 ```sh
-orca plugin install bahachammakhi/kube-panel@v0.1.1
+orca plugin install bahachammakhi/kube-panel@v0.1.2
 ```
 
 Review the requested access in Orca, then enable the plugin. Open **Kube Panel** from the right sidebar, or run `orca plugin open bahachammakhi.kube-panel`.
@@ -40,6 +42,8 @@ Choose an Orca workspace, cluster context, and namespace, then **Connect**. Ente
 The panel keeps its connection controls and filter visible while workloads scroll in a compact list. Selecting a resource opens a separate details pane immediately below the list, preserving your list position. **Expand** gives logs, events, or YAML the remaining panel space; **Split view** returns to the list and details together. Close details with **×** or **Escape**. The workspace destination selector is tucked into the expandable **Workspace** line.
 
 The output inspector shows numbered log lines with timestamps and severity, search with highlighted matches, and level filters. JSON logs show their message first; expand a line to inspect all its fields. **Wrap** controls long lines, **Copy** copies the full output when the clipboard is available, and the inspector has its own **Refresh**. **Auto** optionally reloads the last 200 log lines every three seconds, pausing while the panel is hidden or previous-container logs are selected. **Follow** keeps the latest line visible; scrolling up pauses it. YAML has line numbers and key highlighting; events show type, reason, count, and time. Output is rendered as text, including messages containing HTML.
+
+![Events inspector captured inside Orca with demo data](assets/orca-events.png)
 
 ## Access and limits
 
